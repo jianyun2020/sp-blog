@@ -1,0 +1,12 @@
+// 全局变量
+@import "./variables";
+
+// 样式初始化
+@import "./_reset";
+
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
