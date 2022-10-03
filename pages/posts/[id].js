@@ -1,5 +1,8 @@
+import Styles from "../../styles/pages.module.scss";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import { useTitle } from "../../lib/hooks";
+import {useContext, useEffect} from 'react'
+import { navContext } from "../../components/layout";
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -21,12 +24,24 @@ export async function getStaticProps({ params }) {
 export default function Post({ postData }) {
   useTitle(postData.title);
 
+  
+  const contentArr = postData.contentHtml.split("</nav>")
+  const nav = contentArr[0] + "</nav>"
+  const setNav = useContext(navContext)
+  setNav(nav)
+  const content = contentArr[1]
+
+  useEffect(() => {
+    return () => {
+      setNav('')
+    }
+  }, [])
+
   return (
-    <div>
-      <article>
-        <h1>{postData.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+    <>
+      <article className={Styles.article}>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
       </article>
-    </div>
+    </>
   );
 }

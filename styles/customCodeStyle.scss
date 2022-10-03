@@ -1,7 +1,7 @@
 .custom-code-style {
   position: relative;
   padding: 20px; /* px-to-viewport-ignore */
-  overflow-x: scroll;
+  overflow-x: auto;
 
   code {
 
@@ -9,4 +9,3 @@
     }
   }
 }
-

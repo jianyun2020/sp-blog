@@ -2,21 +2,6 @@
 title: 'TypeScript入门'
 ---
 
-```js
-let a = 1;
-function add (a, b) {
-  return a + b
-}
-
-function sum(x: number, y: number): number {
-  return x + y
-}
-
-function sum(x: number, y: number): number{
-	return x + y;
-}
-```
-
 # TypeScript入门
 
 # 基础数据类型
@@ -1665,7 +1650,7 @@ function identity <T, U>(value: T, message: U) : T {
 console.log(identity<Number, string>(68, "Semlinker"));
 ```
 
-[https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc2bcfb0e8414282b606705c6a0385e0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc2bcfb0e8414282b606705c6a0385e0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?)
+![https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc2bcfb0e8414282b606705c6a0385e0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc2bcfb0e8414282b606705c6a0385e0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?)
 
 除了为类型变量显式设定值之外，一种更常见的做法是使编译器自动选择这些类型，从而使代码更简洁。我们可以完全省略尖括号，比如：
 
