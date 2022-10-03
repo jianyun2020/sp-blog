@@ -13,7 +13,8 @@
   // transform: translate(-50%, -50%);
   transform: translateX(-50%);
   background-color: $block-background-color;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: rgb(0 0 0 / 10%) 0 10px 50px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +37,11 @@
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  transition: all .3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .name {
