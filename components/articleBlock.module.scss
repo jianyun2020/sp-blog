@@ -53,7 +53,8 @@
   line-height: 2;
   font-size: 16px; /* px-to-viewport-ignore */
   color: #555;
-  max-height: 400px; /* px-to-viewport-ignore */
+  max-width: 1000px;
+  max-height: 300px; /* px-to-viewport-ignore */
   overflow: hidden;
   margin: 40px 0; /* px-to-viewport-ignore */
 }

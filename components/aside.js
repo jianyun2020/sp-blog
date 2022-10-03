@@ -14,7 +14,7 @@ export default function Aside({ ...props }) {
           {/* 头像 */}
           <Link href="/">
             <div className={Styles.avatar}>
-              <Image src={"/images/profile.jpg"} layout="fill" />
+              <Image src={"/images/profile.jpg"} priority layout="fill" />
             </div>
           </Link>
 

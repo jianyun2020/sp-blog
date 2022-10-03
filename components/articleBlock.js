@@ -1,8 +1,9 @@
+import { parseISO } from "date-fns";
 import Link from "next/link";
 import Styles from "./articleBlock.module.scss";
 
 export default function ArticleBlock(props) {
-  const { id, date, data, wordcount } = props;
+  const { id, birthTime, contentHtml, wordCount } = props;
 
   return (
     <article className={Styles.content}>
@@ -16,7 +17,7 @@ export default function ArticleBlock(props) {
               <use xlinkHref={`#icon-rili`}></use>
             </svg>
           </span>
-          <span>发表于 {date}</span>
+          <span>发表于 {birthTime}</span>
         </li>
         <li>
           <span>
@@ -24,7 +25,7 @@ export default function ArticleBlock(props) {
               <use xlinkHref={`#icon-file-word`}></use>
             </svg>
           </span>
-          <span>字数统计 {wordcount}</span>
+          <span>字数统计 {wordCount}</span>
         </li>
         <li>
           <span>
@@ -37,25 +38,7 @@ export default function ArticleBlock(props) {
       </ul>
 
       <div className={Styles.postBody}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae possimus
-        quaerat earum velit laudantium? Quia debitis fugiat quam porro aperiam
-        ratione aliquam, obcaecati repudiandae iusto quisquam soluta culpa qui
-        earum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae
-        possimus quaerat earum velit laudantium? Quia debitis fugiat quam porro
-        aperiam ratione aliquam, obcaecati repudiandae iusto quisquam soluta
-        culpa qui earum. Lorem ipsum dolor sit amet consectetur, adipisicing
-        elit. Quae possimus quaerat earum velit laudantium? Quia debitis fugiat
-        quam porro aperiam ratione aliquam, obcaecati repudiandae iusto quisquam
-        soluta culpa qui earum. Lorem ipsum dolor sit amet consectetur,
-        adipisicing elit. Quae possimus quaerat earum velit laudantium? Quia
-        debitis fugiat quam porro aperiam ratione aliquam, obcaecati repudiandae
-        iusto quisquam soluta culpa qui earum. Lorem ipsum dolor sit amet
-        consectetur, adipisicing elit. Quae possimus quaerat earum velit
-        laudantium? Quia debitis fugiat quam porro aperiam ratione aliquam,
-        obcaecati repudiandae iusto quisquam soluta culpa qui earum. Lorem ipsum
-        dolor sit amet consectetur, adipisicing elit. Quae possimus quaerat
-        earum velit laudantium? Quia debitis fugiat quam porro aperiam ratione
-        aliquam, obcaecati repudiandae iusto quisquam soluta culpa qui earum.
+       <div dangerouslySetInnerHTML={{__html: contentHtml}} ></div>
       </div>
       <Link href={`/posts/${id}`}>
         <div className={Styles.postDetail}>

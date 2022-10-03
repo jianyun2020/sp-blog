@@ -1,7 +1,5 @@
-import Head from 'next/head'
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import Date from '../../components/date';
-import utilStyles from '../../styles/utils.module.css';
+import { useTitle } from "../../lib/hooks";
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -20,20 +18,15 @@ export async function getStaticProps({ params }) {
   };
 }
 
-
 export default function Post({ postData }) {
+  useTitle(postData.title);
+
   return (
-    <>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
+    <div>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
+        <h1>{postData.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-    </>
+    </div>
   );
 }

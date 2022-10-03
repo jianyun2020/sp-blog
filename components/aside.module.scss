@@ -4,14 +4,10 @@
   position: sticky;
   width: 100%;
   top: 100px;
+  padding: 20px;
 }
 
 .main {
-  position: absolute;
-  left: 50%;
-  // top: 50%;
-  // transform: translate(-50%, -50%);
-  transform: translateX(-50%);
   background-color: $block-background-color;
   box-shadow: rgb(0 0 0 / 10%) 0 10px 50px;
   border-radius: 5px;
