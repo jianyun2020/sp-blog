@@ -66,7 +66,7 @@ export default class Post extends React.Component {
           />
           <div
             className={Styles.nav}
-            dangerouslySetInnerHTML={{ __html: nav }}
+            dangerouslySetInnerHTML={{ __html: nav.includes('list-class') ? nav : '' }}
           />
         </article>
       </>
