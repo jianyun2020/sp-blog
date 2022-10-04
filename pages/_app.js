@@ -2,12 +2,9 @@ import "../styles/global.scss";
 import Script from "next/script";
 import Layout from "../components/layout";
 import Head from "next/head";
-import { useTitle } from "../lib/hooks";
 
 export default function App({ Component, pageProps }) {
 
-  useTitle("Jianyun's Blog")
-  
   return (
     <Layout>
       <Head>
@@ -22,6 +19,7 @@ export default function App({ Component, pageProps }) {
           href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/default.min.css"
         ></link>
         <link rel="shortcut icon" href="/favicon.ico" />
+        <title>Jianyun's Blog</title>
       </Head>
       <Component {...pageProps} />
       <Script src="//at.alicdn.com/t/c/font_3684376_poom9m0chgp.js" />
