@@ -12,16 +12,11 @@
 
 .main {
   flex: 1;
-  padding: 40px 20px;
-  overflow: hidden;
-}
-
-.rightAside {
-  width: 360px;
+  // padding: 40px 20px;
 }
 
 @media all and (max-width: 960px) {
-  .leftAside,.rightAside {
+  .leftAside {
     display: none;
   }
 }

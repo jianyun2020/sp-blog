@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
           href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/default.min.css"
         ></link>
-        <link rel="shortcut icon" href="../public/images/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
       <Script src="//at.alicdn.com/t/c/font_3684376_poom9m0chgp.js" />
