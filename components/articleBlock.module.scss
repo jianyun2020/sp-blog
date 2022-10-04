@@ -59,6 +59,12 @@
   margin: 40px 0; /* px-to-viewport-ignore */
 }
 
+@media (max-width: 960px) {
+  .postBody {
+    max-width: 95vw;
+  }
+}
+
 .postDetail {
   text-align: center;
 
