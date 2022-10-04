@@ -27,28 +27,28 @@ export default class Post extends React.Component {
 
   componentDidMount() {
     const uld = document.querySelector(".list-class");
-    this.setState({ ulDom: uld });
-    uld.addEventListener("click", this.handleClick);
-  }
-
-  componentDidUpdate() {
-    console.log("DidUpdate");
+    if (uld) {
+      this.setState({ ulDom: uld });
+      uld.addEventListener("click", this.handleClick);
+    }
   }
 
   handleClick = (event) => {
     const target = event.target;
-    if (target.tagName === 'A') {
+    if (target.tagName === "A") {
       if (this.state.aDom) {
-        this.state.aDom.classList.remove('active')
+        this.state.aDom.classList.remove("active");
       }
-      this.setState({aDom: target}, () => {
-        this.state.aDom.classList.add('active')
-      })
+      this.setState({ aDom: target }, () => {
+        this.state.aDom.classList.add("active");
+      });
     }
   };
 
   componentWillUnmount() {
-    this.state.ulDom.removeEventListener('click', this.handleClick)
+    if (this.state.ulDom) {
+      this.state.ulDom.removeEventListener("click", this.handleClick);
+    }
   }
 
   render() {
