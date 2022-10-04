@@ -1,7 +1,6 @@
 import React from "react";
 import Styles from "../../styles/pages.module.scss";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import { useTitle } from "../../lib/hooks";
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -21,18 +20,58 @@ export async function getStaticProps({ params }) {
 }
 
 export default class Post extends React.Component {
+  state = {
+    ulDom: null,
+    aDom: null,
+  };
 
-  return (
-    <>
-      <article className={Styles.article}>
-        <div
-          className={Styles.post}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-        <div className={Styles.nav} dangerouslySetInnerHTML={{ __html: nav }} />
-      </article>
-    </>
-  );
+  componentDidMount() {
+    const uld = document.querySelector(".list-class");
+    this.setState({ ulDom: uld });
+    uld.addEventListener("click", this.handleClick);
+  }
+
+  componentDidUpdate() {
+    console.log("DidUpdate");
+  }
+
+  handleClick = (event) => {
+    const target = event.target;
+    if (target.tagName === 'A') {
+      if (this.state.aDom) {
+        this.state.aDom.classList.remove('active')
+      }
+      this.setState({aDom: target}, () => {
+        this.state.aDom.classList.add('active')
+      })
+    }
+  };
+
+  componentWillUnmount() {
+    this.state.ulDom.removeEventListener('click', this.handleClick)
+  }
+
+  render() {
+    const { postData } = this.props;
+    const contentArr = postData.contentHtml.split("</nav>");
+    const nav = contentArr[0] + "</nav>";
+    const content = contentArr[1];
+
+    return (
+      <>
+        <article className={Styles.article}>
+          <div
+            className={Styles.post}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+          <div
+            className={Styles.nav}
+            dangerouslySetInnerHTML={{ __html: nav }}
+          />
+        </article>
+      </>
+    );
+  }
 }
 
 // export default function Post({ postData }) {
